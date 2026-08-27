@@ -1,9 +1,10 @@
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
-        mapping_s = {}
-        mapping_t = {}
-        for i in s:
-            mapping_s[i] = mapping_s.get(i, 0) + 1
-        for j in t:
-            mapping_t[j] = mapping_t.get(j, 0) + 1
-        return mapping_s == mapping_t
+        d1, d2 = dict(), dict()
+        for i in set(s):
+            d1[i] = s.count(i)
+        
+        for j in set(t):
+            d2[j] = t.count(j)
+
+        return d1 == d2
